@@ -11,6 +11,9 @@ const { searchForm, gallery, loadMoreBtn, endCollectionText } = {
   endCollectionText: document.querySelector('.end-collection-text'),
 };
 
+loadMoreBtn.classList.add('is-hidden');
+endCollectionText.classList.add('is-hidden');
+  
 function renderCardImage(arr) {
   const markup = arr.map(item => cardTemplate(item)).join('');
   gallery.insertAdjacentHTML('beforeend', markup);
@@ -30,6 +33,7 @@ searchForm.addEventListener('submit', onSubmitSearchForm);
 
 async function onSubmitSearchForm(e) {
   e.preventDefault();
+
   searchQuery = e.currentTarget.searchQuery.value;
   currentPage = 1;
 
