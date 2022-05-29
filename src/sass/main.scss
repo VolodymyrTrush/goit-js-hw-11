@@ -1,3 +1,8 @@
+// Brakepoints
+
+$mobile: 320px;
+$tablet: 768px;
+$desktop: 1440px;
 
 // Base
 
@@ -19,6 +24,7 @@ img {
   max-width: 100%;
   height: auto;
 }
+
 a {
   text-decoration: none;
 }
@@ -37,10 +43,18 @@ p {
 // Utilities
 
 .container {
-  width: 1440px;
+  width: $mobile;
   margin: 0 auto;
   margin-top: 110px;
   padding: 0 10px 0 10px;
+
+  @media screen and (min-width: $tablet) {
+    width: $tablet;
+  }
+
+  @media screen and (min-width: $desktop) {
+    width: $desktop;
+  }
 }
 
 // Search form
@@ -50,18 +64,25 @@ p {
   top: 0;
   left: 0;
   width: 100%;
+
   display: flex;
   align-items: center;
   justify-content: center;
+
   padding: 25px 0 25px 0;
-  background: #3443e8;
+
+  background: #34e89e;
+  background: linear-gradient(to right, #0f3443, #34e89e);
+  box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.5);
 }
 
 .search-form__input {
   width: 180px;
   height: 40px;
   padding: 10px;
+
   font-size: 16px;
+
   outline: none;
   border: none;
   border-top-left-radius: 5px;
@@ -71,12 +92,22 @@ p {
     font-size: 16px;
     color: #cccccc;
   }
+
+  @media screen and (min-width: $tablet) {
+    width: 400px;
+  }
+
+  @media screen and (min-width: $desktop) {
+    width: 700px;
+  }
 }
 
 .search-form__button {
   width: 100px;
   height: 40px;
+
   font-size: 16px;
+
   border: none;
   border-top-right-radius: 5px;
   border-bottom-right-radius: 5px;
@@ -86,30 +117,44 @@ p {
 
   &:hover,
   &:focus {
-    background-color: #34c7e8;
+    background-color: #0f3443;
     color: #ffffff;
+  }
+
+  @media screen and (min-width: $mobile) {
+    width: 70px;
   }
 }
 
 // Gallery
 
 .gallery {
+  @media screen and (min-width: $tablet) {
     display: flex;
     flex-wrap: wrap;
     margin: -10px;
+  }
 }
 
 .photo-card {
   margin-bottom: 10px;
   width: 300px;
+
   box-shadow: 0px 3px 8px 0px rgba(0, 0, 0, 0.5);
   border-radius: 5px;
   overflow: hidden;
-  flex-basis: calc(100% / 4 - 20px);
-  margin: 10px auto;
 
   :last-child {
     margin-bottom: 0;
+  }
+
+  @media screen and (min-width: $tablet) {
+    width: calc((100% - 10px * 4) / 2);
+    margin: 10px;
+  }
+
+  @media screen and (min-width: $desktop) {
+    width: calc((100% - 10px * 8) / 4);
   }
 }
 
@@ -117,6 +162,7 @@ p {
   display: flex;
   justify-content: space-between;
   align-items: center;
+
   padding: 15px;
 }
 
@@ -129,11 +175,14 @@ p {
 .load-more {
   width: 200px;
   height: 40px;
+
   margin-top: 50px;
   margin-bottom: 30px;
   margin-left: 50%;
   transform: translateX(-50%);
+
   font-size: 16px;
+
   border: none;
   border-radius: 5px;
 
@@ -142,7 +191,7 @@ p {
 
   &:hover,
   &:focus {
-    background-color: #34c7e8;
+    background-color: #0f3443;
     color: #ffffff;
   }
 
@@ -154,7 +203,7 @@ p {
 .end-collection-text {
   margin: 30px 0 30px 0;
   text-align: center;
-  font-size: 30px;
+  font-size: 20px;
 
   &.is-hidden {
     display: none;
