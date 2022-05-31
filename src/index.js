@@ -56,7 +56,7 @@ const onSearch = e => {
   fetchPicsOptions.q = searchQuery.value.toLowerCase().trim();
   if (fetchPicsOptions.q === '') {
     refs.gallery.innerHTML = '';
-    Notify.failure('There is nothing to search!');
+    Notify.failure('Please enter something in search field!');
   }
   if (fetchPicsOptions.q.length) {
     refs.gallery.innerHTML = '';
