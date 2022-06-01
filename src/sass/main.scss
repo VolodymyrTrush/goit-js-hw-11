@@ -149,18 +149,20 @@ input {
 // Gallery
 
 .gallery {
-    width: 100%;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     margin: 0 auto;
+    width: auto;
     padding-top: 70px;
+        
 }
 
 .gallery-item {
     display: flex;
-    flex-basis: calc(100% / 4 - 20px);
-    margin: 10px auto;
+    flex-basis: calc(100% / 4 - 40px);
+    margin: 20px auto;
+    object-fit: cover;
 }
 
 // Card

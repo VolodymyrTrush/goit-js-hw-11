@@ -2,7 +2,6 @@ import axios from 'axios';
 
 const BASE_URL = 'https://pixabay.com/api/';
 const API_KEY = '27183497-70bd3599297502793f5a9350a';
-const url = `${BASE_URL}?key=${API_KEY}`;
 
 export const fetchPicsOptions = {
   q: '',
@@ -10,7 +9,13 @@ export const fetchPicsOptions = {
   orientation: 'horizontal',
   safesearch: true,
   per_page: 40,
+  page: 1,
 };
 
-export const fetchPics = async params =>
-  await axios.get(url, { params }).catch(e => console.error(e));
+export const fetchPics = async params => {
+  try {
+    return await axios.get(BASE_URL, { params: { ...params, key: API_KEY } });
+  } catch (error) {
+    console.error(error);
+  }
+};
